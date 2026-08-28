@@ -1,12 +1,12 @@
 # Cursor × AI Powered
 
-Private 6-tab sponsor proposal for Nick and Cursor GTM. Draft. August 2026.
+Private 6-argument-tab sponsor proposal plus a Team page for Nick and Cursor GTM. Draft. August 2026.
 
 Live: **https://beniskillen.github.io/cursor-x-ai-powered/**
 
 Password: `Cursor`
 
-Photography is cached from the named events (Malaysia Tech-Critter, RAISE Summit, Vancouver recap, Heilbronn CREATORS recap). Not travel stock.
+Type matches the public site: **DM Sans** body, **Source Serif 4** display, IBM Plex Mono labels. Photography is cached from the named events (Malaysia Tech-Critter, RAISE Summit, Vancouver recap, Heilbronn CREATORS recap). Not travel stock. Speaker and team cards do not link out except AI Powered or Ross assets (`aipowered.xyz`, mail, WhatsApp).
 
 ```bash
 npm install

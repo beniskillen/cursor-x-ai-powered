@@ -15,6 +15,7 @@ const TABS = [
   { id: 'method', nav: 'Methodology' },
   { id: 'scale', nav: 'Scale' },
   { id: 'invest', nav: 'Investment' },
+  { id: 'team', nav: 'Team' },
 ]
 
 const PRO_PLUS = 60
@@ -151,56 +152,69 @@ function PageEnd({ onNext, nextLabel }) {
   )
 }
 
-function TeamRail() {
+function TeamRail({ onOpenTeam }) {
   return (
     <aside className="rail" aria-label="About the team">
       <p className="mono">About the team</p>
-      <h2>Who walks this with you</h2>
+      <h2>Who’s behind the event</h2>
       <p className="rail-lede">
-        Not a vendor slide. The people who would run the year.
+        Headline names from the Productize Yourself speaker invitation. The operators who run the year are on the Team page.
+      </p>
+
+      <article className="who">
+        <img src={asset('daniel.jpg')} alt="Daniel Priestley" />
+        <div>
+          <strong>Daniel Priestley</strong>
+          <span>Headline speaker · in discussion</span>
+        </div>
+      </article>
+      <p className="who-bio">
+        Founder of Dent Global and ScoreApp. Author of Key Person of Influence, Oversubscribed, Scorecard Marketing and The Lifestyle Business Playbook. The invitation deck is built around him. Not contracted until date, fee, travel, promotion and clip rights are in writing.
       </p>
 
       <article className="who">
         <img src={asset('ross.png')} alt="Ross Power" />
         <div>
           <strong>Ross Power</strong>
-          <span>Founder, AI Powered · authority, stage, curriculum, close</span>
+          <span>Founder · Event Director &amp; Producer</span>
         </div>
       </article>
       <p className="who-bio">
-        Accenture design-thinking and workshops, then product leadership through startups and as Head of Product at NYSE-listed Genius Group. Built AI Powered to teach operators to ship — Bali, London, Dubai. Philosophy: confidence comes from doing. ~120 people through the method in 2026.
+        Accenture workshops, then product leadership and Head of Product at NYSE-listed Genius Group — including the 700-person Steven Bartlett event. Built AI Powered to teach operators to ship. Bali, London, Dubai. Confidence comes from doing.
       </p>
 
-      <article className="who">
-        <img src={asset('ben.jpg')} alt="Ben Killen presenting" />
+      <p className="mono rail-sub">The two partners on the deck</p>
+      <div className="partner-stack">
+        <article className="partner-mark">
+          <img src={asset('dent.png')} alt="" />
+          <div>
+            <strong>Dent</strong>
+            <span>Daniel’s accelerator. Co-founders Glen Carlson and Mike Reid.</span>
+          </div>
+        </article>
+        <article className="partner-mark">
+          <img src={asset('scoreapp.png')} alt="" />
+          <div>
+            <strong>ScoreApp</strong>
+            <span>Daniel’s scorecard platform — proof and lead capture in the attendee journey.</span>
+          </div>
+        </article>
+      </div>
+
+      <button type="button" className="team-link" onClick={onOpenTeam}>
+        Everyone else on the event →
+      </button>
+
+      <article className="who dylan">
+        <span className="who-initials" aria-hidden="true">D</span>
         <div>
-          <strong>Ben Killen</strong>
-          <span>Commercial owner · pipeline, attribution, sponsor reporting</span>
+          <strong>Dylan</strong>
+          <span>Event team</span>
         </div>
       </article>
       <p className="who-bio">
-        Growth Labs: revenue systems from first principles. Named career proof includes 2× at Introvert, $80k+ productised revenue at Ethos, 30% YOY at MTP Health, and $1.5M+ attributed sales at Fortem. Installs the follow-up until revenue happens.{' '}
-        <a href="https://beniskillen.github.io/Growth-Labs/" target="_blank" rel="noreferrer">Growth Labs</a>
+        At the close of this rail on purpose — in the room, not on the headline slide. Role and bio lock with Ross before this journey goes live.
       </p>
-
-      <ul className="who-list">
-        <li>
-          <strong>Andy</strong>
-          Creative direction, brand, capture on the ground
-        </li>
-        <li>
-          <strong>Michael Halomoan Sihombing</strong>
-          Product and web — sites, scorecards, dashboards
-        </li>
-        <li>
-          <strong>Carmelita Santania Fahik</strong>
-          Operations — CRM, programme admin, coordination
-        </li>
-        <li>
-          <strong>Event layer</strong>
-          Streaming and clipping with a professional desk (Pukecast is the candidate, not yet contracted). Speaker support via Tekla where the relationship is live.
-        </li>
-      </ul>
 
       <div className="rail-cta">
         <p className="mono">The ask</p>
@@ -208,6 +222,27 @@ function TeamRail() {
         <a className="btn btn-accent" href={CHAT_MAIL}>Let’s have a conversation</a>
       </div>
     </aside>
+  )
+}
+
+function Status({ children }) {
+  return <span className="status">{children}</span>
+}
+
+function TeamCard({ photo, initials, name, role, status, children }) {
+  return (
+    <article className="team-card">
+      {photo ? (
+        <img src={asset(photo)} alt="" />
+      ) : (
+        <span className="who-initials lg" aria-hidden="true">{initials}</span>
+      )}
+      <div>
+        <p className="mono">{role}</p>
+        <h3>{name} {status && <Status>{status}</Status>}</h3>
+        <p>{children}</p>
+      </div>
+    </article>
   )
 }
 
@@ -339,7 +374,7 @@ export default function App() {
           </div>
           <div className="header-meta">
             <span className="mono">Private proposal</span>
-            <span className="mono">{idx + 1} / 6</span>
+            <span className="mono">{idx + 1} / {TABS.length}</span>
             <a className="btn btn-header" href={CHAT_MAIL}>Let’s have a conversation</a>
           </div>
         </div>
@@ -357,7 +392,7 @@ export default function App() {
         </nav>
       </header>
 
-      <div className="body">
+      <div className={`body${tab === 'team' ? ' body-team' : ''}`}>
         {tab === 'welcome' && (
           <main className="page">
             <Hero
@@ -537,7 +572,7 @@ export default function App() {
                 <li><strong>Nick.</strong> Cursor GTM. The reader these pages are for.</li>
                 <li><strong>Sashen.</strong> The warm route. Opens the call. Does not replace a Cursor-side owner.</li>
                 <li><strong>Ross Power.</strong> Authority, stage, and the close. I do not work around your marketing hire.</li>
-                <li><strong>Ben Killen.</strong> Commercial owner — pipeline, attribution, sponsor reporting. Growth Labs.</li>
+                <li><strong>Ben Killen.</strong> Commercial owner — pipeline, attribution, sponsor reporting.</li>
                 <li><strong>Your named owner, once you name them.</strong> Every recommendation leaves with their name beside mine.</li>
               </ul>
             </div>
@@ -630,7 +665,7 @@ export default function App() {
                   </ul>
                 </article>
                 <article>
-                  <p className="mono">Growth Labs · commercial proof</p>
+                  <p className="mono">Career-named commercial proof</p>
                   <h3>Revenue systems, not theatre</h3>
                   <p>Ben’s cases are career-named and public. Same rigor the cohort is taught: diagnose the constraint, productise the offer, install the line, measure cash.</p>
                   <ul>
@@ -864,12 +899,105 @@ export default function App() {
                 <li>Term sheet shaped around this breakdown — or a no.</li>
                 <li>Deposit. 2 October as the small test.</li>
               </ol>
-              <PageEnd />
+              <PageEnd onNext={() => go('team')} nextLabel="Who runs the year →" />
             </div>
           </main>
         )}
 
-        <TeamRail />
+        {tab === 'team' && (
+          <main className="page">
+            <Hero
+              photo="malaysia-5.jpg"
+              eyebrow="Team"
+              title="Everyone who makes the year real"
+              caption="Headline names stay on the rail. This page is the operating map — roles, experience, and what is still to confirm."
+            />
+
+            <div className="prose tight">
+              <p className="lead">AI Powered is still a lean company. The speaker invitation names who is behind the event. This page names who would actually run it with Cursor.</p>
+              <p>Daniel Priestley is highlighted because the Productize Yourself deck is built around him. He is in discussion, not contracted. Dent and ScoreApp are the two partners printed on that same deck. Ross is Event Director. Everyone else lives here so the rail stays a headline, not a staff list.</p>
+            </div>
+
+            <div className="section">
+              <h2>Who runs the room</h2>
+              <div className="team-grid">
+                <TeamCard photo="tekla.jpg" name="Tekla Toppings" role="Speaker engagement" status="Live relationship">
+                  On the speaker-invitation team as Speaker Engagement. Publicly: career coach behind Tekla Toppings — 75+ one-to-ones, eight years in hospitality corporate, four years as a startup consultant, now based in Indonesia. For this event she owns riders, flights, promo obligations, recording and clip rights. Nothing is a confirmed speaker until those terms are in writing.
+                </TeamCard>
+                <TeamCard photo="ferran.jpg" name="Ferran Tort" role="Programming and content" status="Named on the deck">
+                  Change-management and executive advisor with a psychology background. Founder of AI Masters; works with executive teams to cut resistance and accelerate adoption. On the invitation deck as Programming and Content — the person who shapes the session architecture around speakers, not a generic agenda.
+                </TeamCard>
+                <TeamCard photo="ben.jpg" name="Ben Killen" role="Commercial owner" status="Live">
+                  Pipeline, attribution, sponsor reporting. Named career proof includes 2× at Introvert, $80k+ productised revenue at Ethos, 30% YOY at MTP Health, and $1.5M+ attributed sales at Fortem (career, not a current seat). The deck’s Sponsorship Manager slot is still TBC; this is the commercial lane in practice.
+                </TeamCard>
+                <TeamCard initials="W" name="Wanda Rahayu" role="Venue and supplier ops" status="Live for RFQs">
+                  Design, carousels and on-ground event operations from the 2026 tour research. Opens identical RFQs with BNDCC, BICC/Westin and Hilton. Two quotes per line over US$10k. Does not own vision or the close.
+                </TeamCard>
+                <TeamCard initials="—" name="Event producer / finance owner" role="Quotes, contracts, cash gates" status="To hire">
+                  The deck leaves Event Manager TBC. No unfunded commitment passes this seat. Hours rise toward the flagship. Ross is not this person.
+                </TeamCard>
+              </div>
+            </div>
+
+            <div className="section">
+              <h2>Experience design</h2>
+              <div className="team-grid">
+                <TeamCard initials="M" name="Mike" role="Divine pillar" status="Founding lane">
+                  Meditation, breathwork, and the Artificial vs Absolute Intelligence debate. Role, safety requirements and workshop format still need a written confirm with Ross.
+                </TeamCard>
+                <TeamCard initials="M" name="Miri" role="Human pillar" status="Founding lane">
+                  Design thinking, speculative design, before/during/after journey. Offline Club Bali is the no-phones connection practice already in Ross’s orbit. Prototypes the Rotation Experiment before it hits a 1,000-person floor.
+                </TeamCard>
+                <TeamCard initials="S" name="Sarah" role="Music and atmosphere" status="Unconfirmed">
+                  Potential DJ / cultural-programming lane. Ross still has to confirm genuine buy-in or release the role. Not a headline.
+                </TeamCard>
+              </div>
+            </div>
+
+            <div className="section">
+              <h2>Delivery</h2>
+              <div className="team-grid">
+                <TeamCard initials="A" name="Andy" role="Creative direction" status="Live">
+                  Brand, content system, capture on the ground. Translates the event world into assets a sponsor can actually use — without copying someone else’s festival aesthetic.
+                </TeamCard>
+                <TeamCard initials="MH" name="Michael Halomoan Sihombing" role="Product and web" status="Live">
+                  Sites, scorecards, landing pages, dashboards, badge/QR and tracking. The waitlist and attribution layer sit here with Ben.
+                </TeamCard>
+                <TeamCard initials="C" name="Carmelita Santania Fahik" role="Operations" status="Live">
+                  GHL, programme admin, uploads, attendance, VIP coordination. The desk that keeps the year moving when the stage is empty.
+                </TeamCard>
+                <TeamCard initials="CM" name="Cosmo Mullen" role="Junior product / UK" status="Confirm capacity">
+                  LinkedIn, outreach, PE research, event development and content coordination. Placement end date and ongoing ownership still need a check.
+                </TeamCard>
+              </div>
+            </div>
+
+            <div className="section">
+              <h2>Production partners</h2>
+              <div className="team-grid">
+                <TeamCard initials="P" name="Pukecast" role="Stream, capture, clip desk" status="Candidate">
+                  Professional streaming and clipping house. Named as the candidate desk, not yet contracted. US$20k stated minimum to bring crew and equipment. No stream promise until a signed production plan exists.
+                </TeamCard>
+                <TeamCard initials="AE" name="Andi + Enrico" role="Photo and video capture" status="Existing crew">
+                  Existing AI Powered capture, with hired shooters as needed. Session video, photography and social clips are speaker inventory — only when rights are in the contract.
+                </TeamCard>
+              </div>
+            </div>
+
+            <div className="section">
+              <h2>At the close of the rail</h2>
+              <div className="team-grid">
+                <TeamCard initials="D" name="Dylan" role="Event team" status="Role to confirm">
+                  Named here because he belongs on the operating map, not because a bio has been locked. He sits at the bottom of About the team so the headline slide stays Daniel, Ross, Dent and ScoreApp. Ross confirms role and experience before this page is treated as live.
+                </TeamCard>
+              </div>
+            </div>
+
+            <PageEnd />
+          </main>
+        )}
+
+        {tab !== 'team' && <TeamRail onOpenTeam={() => go('team')} />}
       </div>
 
       <footer className="footer">
