@@ -2,10 +2,9 @@
 
 Private 6-tab sponsor proposal for Nick and Cursor GTM. Draft. August 2026.
 
-Live (GitHub Pages, after the first Actions run):
-`https://beniskillen.github.io/cursor-x-ai-powered/`
+Live: **https://beniskillen.github.io/cursor-x-ai-powered/**
 
-Password is in the internal proposal notes — do not put it in issues or public tweets.
+Password: `Cursor`
 
 ```bash
 npm install
