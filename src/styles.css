@@ -265,6 +265,54 @@ a.btn:hover, a.btn-header:hover { text-decoration: none; }
   margin: 28px 0;
   max-width: 28ch;
 }
+.quote.wide { max-width: 42ch; font-size: 22px; }
+
+.factory {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 8px 0 4px;
+}
+.factory-step {
+  background: var(--card);
+  padding: 14px 12px 16px;
+  border-top: 2px solid var(--ink);
+  min-height: 148px;
+}
+.factory-step h3 { font-size: 16px; font-weight: 500; margin: 6px 0 8px; }
+.factory-step p { font-size: 13px; color: #4a4944; line-height: 1.4; }
+
+.functions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.functions span {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.proofs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 24px 0 8px;
+}
+.proofs article {
+  background: var(--card);
+  padding: 18px 16px 16px;
+  border: 1px solid rgba(38,37,30,0.08);
+}
+.proofs h3 { font-size: 18px; font-weight: 500; margin: 6px 0 10px; }
+.proofs p { font-size: 14px; color: #4a4944; margin-bottom: 12px; }
+.proofs ul { margin: 0 0 0 16px; font-size: 13px; color: #4a4944; }
+.proofs li { margin: 0 0 8px; }
+.proofs strong { color: var(--ink); }
 
 .pull {
   display: flex;
@@ -630,9 +678,11 @@ a.btn:hover, a.btn-header:hover { text-decoration: none; }
   .body { grid-template-columns: 1fr; }
   .rail { position: static; margin-top: 8px; }
   .btn-header { display: none; }
+  .factory { grid-template-columns: 1fr 1fr; }
+  .proofs { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  .dials, .cards, .tiles, .kpi, .hire, .plan, .results { grid-template-columns: 1fr; }
+  .dials, .cards, .tiles, .kpi, .hire, .plan, .results, .factory, .proofs { grid-template-columns: 1fr; }
   .hero { height: 42vh; }
   .invest .fig { font-size: 42px; }
   .header-inner { flex-wrap: wrap; }

@@ -179,7 +179,7 @@ function TeamRail() {
         </div>
       </article>
       <p className="who-bio">
-        Growth Labs: revenue systems from first principles. Ten years across sales, BD, CRM, Web3, creators and community — including Bybit distribution and Fortem Media production for brands like Nike and Mercedes. Installs the follow-up until revenue happens.{' '}
+        Growth Labs: revenue systems from first principles. Named career proof includes 2× at Introvert, $80k+ productised revenue at Ethos, 30% YOY at MTP Health, and $1.5M+ attributed sales at Fortem. Installs the follow-up until revenue happens.{' '}
         <a href="https://beniskillen.github.io/Growth-Labs/" target="_blank" rel="noreferrer">Growth Labs</a>
       </p>
 
@@ -397,6 +397,7 @@ export default function App() {
               <p>Nick,</p>
               <p className="lead">This is a private proposal for how Cursor sits beside AI Powered for twelve months. It is not a media kit, and it is not a logo on a slide.</p>
               <p>You already fund this motion on weekends. Copilot, Claude Code and Windsurf can buy those same weekends. What they cannot buy — yet — is a year of operators who keep building on Cursor, with a clip desk and a proof pack your APJ hire walks into.</p>
+              <p>This is not a hall of demos. The flagship sits on Productize Yourself and a room of people who already run businesses. Cursor is the layer they build on from the first brief, because the mandate is AI-first commercial work.</p>
               <p>Forty thousand dollars starts Canggu on 2 October. The rest follows when the work has named it. Sashen can open the door. Ben and I will walk you through it.</p>
             </div>
 
@@ -580,11 +581,69 @@ export default function App() {
               photo="malaysia-1.jpg"
               eyebrow="Approach"
               title="Prove it in Canggu. Compound for a year. Launch in Bali."
-              caption="Cash is gated. The idea is not. The deposit is what lets us lock the date."
+              caption="The event is the theatre. The cohort is the factory line. Cursor is station one."
             />
             <div className="prose tight">
               <p>This is how Cursor shows up in an operator’s week: before they fly, while they build, and for sixty days after they leave — clips, office hours, a case study. The public teaching is at <a href="https://www.aipowered.xyz/programmes/claude" target="_blank" rel="noreferrer">aipowered.xyz/programmes/claude</a>.</p>
             </div>
+
+            <div className="section">
+              <h2>Our process</h2>
+              <p className="lead-plain">The twentieth-century factory line moved parts. This one moves offers, systems and revenue.</p>
+              <div className="prose">
+                <p>The weekend rooms you already buy produce a project. We produce a project with a commercial outcome attached. Upgrade is the public theatre. Productize Yourself — the twelve-thousand-dollar programme behind it — is the line those operators stay on. Marketing, sales, operations, people, product, finance. AI-first is the mandate. Cursor is the named build layer from the first brief, not a credit handed out at the door.</p>
+              </div>
+
+              <div className="factory">
+                {[
+                  ['01', 'Diagnose', 'The actual week: offer, pipeline, ops, not a tool tour'],
+                  ['02', 'Encode', 'Context and standards live in Cursor before anyone flies'],
+                  ['03', 'Ship', 'A commercial artefact — funnel, workflow, internal tool, product'],
+                  ['04', 'Connect', 'It talks to the rest of the business. They stop being the glue'],
+                  ['05', 'Run', 'Twelve months of retained Pro+. The playbook leaves with them'],
+                ].map(([n, t, d]) => (
+                  <div className="factory-step" key={n}>
+                    <p className="mono">{n}</p>
+                    <h3>{t}</h3>
+                    <p>{d}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mono" style={{ margin: '28px 0 10px' }}>The attached cohort</p>
+              <div className="functions">
+                {['Marketing', 'Sales', 'Operations', 'People', 'Product', 'Finance'].map((f) => (
+                  <span key={f}>{f}</span>
+                ))}
+              </div>
+              <p className="note">People leave with a playbook for growing a business, not a weekend demo. Successful operators already in the book hold the standard: if you use Cursor here, you are building something that has to work.</p>
+
+              <div className="proofs">
+                <article>
+                  <p className="mono">AI Powered · the book</p>
+                  <h3>Operators who already sell</h3>
+                  <p>Ross’s network is founders, consultants and teams across Bali, London and Dubai — not weekend hackers collecting a credit. ~120 people through the method in 2026.<Tag>U</Tag> Productize Yourself is the twelve-month line behind the hall.</p>
+                  <ul>
+                    <li><strong>Jamie Roy.</strong> From hesitant to building production-ready agents in weeks. Qualitative; we are documenting the commercial follow-through.</li>
+                    <li><strong>Miri.</strong> Practical work that ships — real workflows, not a chat window.</li>
+                    <li>The book is the filter. People in the room are already in business. Cursor sits inside that week.</li>
+                  </ul>
+                </article>
+                <article>
+                  <p className="mono">Growth Labs · commercial proof</p>
+                  <h3>Revenue systems, not theatre</h3>
+                  <p>Ben’s cases are career-named and public. Same rigor the cohort is taught: diagnose the constraint, productise the offer, install the line, measure cash.</p>
+                  <ul>
+                    <li><strong>Introvert / 27 Letters.</strong> 2× agency revenue in 12 months. LinkedIn relationship BD as the single mechanism.</li>
+                    <li><strong>Ethos Performance.</strong> Productised a high-margin online line. $80k+ in the first 12 months.</li>
+                    <li><strong>MTP Health.</strong> 30% YOY as first Head of Growth. Specialised offer, not another gym-adjacent menu.</li>
+                    <li><strong>Fortem Media.</strong> $1.5M+ attributed sales from a category-led BD system. Creative delivery stayed with the studio.</li>
+                  </ul>
+                </article>
+              </div>
+              <blockquote className="quote wide">Cursor becomes part of businesses that make money — because the line they are on is a winning formula, not a hackathon weekend.</blockquote>
+            </div>
+
             <div className="phases">
               <article className="phase">
                 <p className="mono">Phase 1 · Prove · deposit · now → 2 Oct 2026</p>
@@ -623,7 +682,12 @@ export default function App() {
               title="Four of six levels are in scope now"
               caption="Same method. Cursor nouns. No new framework brand."
             />
-            <p className="note">Levels 1–4 in scope. Levels 5–6 future.</p>
+            <p className="note">Levels 1–4 in scope. Levels 5–6 future. The attached Productize Yourself cohort covers the whole operator week — not just code.</p>
+            <div className="functions" style={{ marginBottom: 28 }}>
+              {['Marketing', 'Sales', 'Operations', 'People', 'Product', 'Finance'].map((f) => (
+                <span key={f}>{f}</span>
+              ))}
+            </div>
             <div className="levels">
               {[
                 ['01', 'Context', 'Cursor in the operator’s actual week', 'Not a tool tour. Offers, funnels, internal tools, client work.', false],
