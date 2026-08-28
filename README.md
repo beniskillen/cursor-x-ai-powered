@@ -6,6 +6,8 @@ Live: **https://beniskillen.github.io/cursor-x-ai-powered/**
 
 Password: `Cursor`
 
+Photography is cached from the named events (Malaysia Tech-Critter, RAISE Summit, Vancouver recap, Heilbronn CREATORS recap). Not travel stock.
+
 ```bash
 npm install
 npm run dev
